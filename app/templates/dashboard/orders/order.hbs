@@ -1,5 +1,4 @@
 
-
 {{#paper-card}}
 {{#paper-card-content}}
 
@@ -33,4 +32,8 @@
 
 
 {{/paper-card-content}}
+<div class="md-actions" layout="row" layout-align="end center">
+      {{#paper-button  primary=true raised=true action="addNewItem"}}{{paper-icon icon="add"}}{{/paper-button}}
+      {{#paper-button  primary=true raised=true action="saveOrder"}}{{paper-icon icon="save"}}{{/paper-button}}
+</div>
 {{/paper-card}}

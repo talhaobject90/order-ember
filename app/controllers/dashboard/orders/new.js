@@ -23,13 +23,16 @@ export default Ember.Controller.extend({
                 autoClear: true
               });
             });
-        }).catch(function(){
-          controller.notifications.addNotification({
-            message: 'Sorry, cant save at the moment !' ,
-            type: 'error',
-            autoClear: true
+
+            controller.set('title' , '');
+            controller.transitionToRoute('dashboard.orders.order',order);
+          }).catch(function(){
+            controller.notifications.addNotification({
+              message: 'Sorry, cant save at the moment !' ,
+              type: 'error',
+              autoClear: true
+            });
           });
-        });
+        }
       }
-    }
-});
+    });

@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('orders', function() {
       this.route('order', {path: ':id'});
       this.route('new');
+      this.route('home');
     });
   });
 });

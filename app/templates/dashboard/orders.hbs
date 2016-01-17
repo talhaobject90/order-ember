@@ -1,25 +1,3 @@
-<div class="col-md-4">
-  {{#paper-card}}
-  {{#paper-card-content class="md-whiteframe-z1 list-demo"}}
-  {{paper-input  label="Search Order" value=searchTerm icon="search"}}
-  {{#paper-list}}
-    {{#each matchingOrders as |order|}}
-      {{#paper-item class="md-3-line"}}
-      {{paper-icon primary=true raised=true icon="assignment"}}
-        <div class="md-list-item-text">
-          {{#link-to "dashboard.orders.order" order class="list-group-item "}}
-          {{order.title}}
-          {{/link-to}}
-        </div>
-      {{/paper-item}}
-       {{paper-divider}}
-    {{/each}}
-  {{/paper-list}}
-{{/paper-card-content}}
-{{/paper-card}}
-</div>
-
-
-<div class="col-md-8" >
+<div class="col-md-12" >
   {{outlet}}
 </div>
