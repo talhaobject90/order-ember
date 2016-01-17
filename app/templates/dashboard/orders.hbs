@@ -1,2 +1,42 @@
+<div class="col-md-4">
+  {{#paper-card}}
+  {{#paper-card-content class="md-whiteframe-z1 list-demo"}}
+  {{paper-input  label="Search Order" value=searchTerm icon="search"}}
+  {{#paper-list}}
+    {{#each matchingOrders as |order|}}
+      {{#paper-item class="md-3-line"}}
+      {{paper-icon primary=true raised=true icon="assignment"}}
+        <div class="md-list-item-text">
+          {{#link-to "dashboard.orders.order" order class="list-group-item "}}
+          {{project.title}}
+          {{/link-to}}
+        </div>
+      {{/paper-item}}
+       {{paper-divider}}
+    {{/each}}
+  {{/paper-list}}
+{{/paper-card-content}}
+{{/paper-card}}
+</div>
 
-{{outlet}}
+<div class="col-md-8">
+  {{#paper-card}}
+  {{#paper-card-content}}
+  <div class="list-group">
+    <div class=" col-md-8 well-sm  ">
+            <h3> Create New Order </h3>
+            <table class="table">
+                    <tr>
+                          <td>{{paper-input label="Order Title" required=true value=name icon="description"  required-errortext="Order title is required."}}</td>
+                    </tr>
+                    <tr>
+                      {{paper-button  primary=true raised=true disabled=isCreateOrderButtonDisabled  action="createOrder" label="create Order"}}
+                    </tr>
+            </table>
+    </div>
+    {{liquid-outlet}}
+  </div>
+  {{/paper-card-content}}
+  {{/paper-card}}
+
+</div>
