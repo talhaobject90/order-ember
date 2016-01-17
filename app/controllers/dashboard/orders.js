@@ -23,16 +23,25 @@ export default Ember.Controller.extend({
   actions: {
     createOrder: function(){
       var controller = this;
-      // var user = this.get('user').get('firstObject');
       var order = this.store.createRecord('order', {
-        title: this.get('title')});
+        title: this.get('title'),
+        date: new Date()});
 
         order.save().then(function(){
-          controller.notifications.addNotification({
-            message: 'Sorry, cant save at the moment !' ,
-            type: 'error',
-            autoClear: true
-          });
+          var item = controller.store.createRecord('item', {
+            name :'',
+            quantity :'',
+            rate : '',
+            amount : '',
+            order : order});
+
+            item.save().catch(function(){
+              controller.notifications.addNotification({
+                message: 'Sorry, cant save at the moment !' ,
+                type: 'error',
+                autoClear: true
+              });
+            });
         }).catch(function(){
           controller.notifications.addNotification({
             message: 'Sorry, cant save at the moment !' ,

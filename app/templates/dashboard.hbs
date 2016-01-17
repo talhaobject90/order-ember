@@ -19,6 +19,12 @@ Logged in as {{authManager.currentUser.email}}
         {{/paper-button}}
         {{/link-to}}
 
+        {{#link-to  'dashboard.orders.new'}}
+        {{#paper-button}}
+        New Order
+        {{/paper-button}}
+        {{/link-to}}
+
         <div class="text-right">
           {{#paper-menu  position="target-right target" as |menu|}}
           {{#paper-button target=menu action="toggleMenu" icon-button=true}}
