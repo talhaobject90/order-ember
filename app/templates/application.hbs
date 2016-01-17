@@ -8,6 +8,16 @@
   <div class="center text-center">
     {{#link-to  'application' }}
     <h3>Order App Demo</h3>
+    {{#paper-toolbar}}
+    <div class="md-toolbar-tools">
+      {{#link-to  'dashboard.orders'}}
+{{#paper-button}}
+Orders
+{{/paper-button}}
+      {{/link-to}}
+
+    </div>
+  {{/paper-toolbar}}
     {{/link-to}}
     </div>
   <div class="col-md-12">
