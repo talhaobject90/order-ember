@@ -1,1 +1,22 @@
-{{outlet}}
+
+
+{{#paper-card}}
+{{#paper-card-content}}
+
+
+  {{paper-input label="Order Title" required=true value=model.title icon="description"  required-errortext="Order title is required."}}
+
+<table class="table bordered">
+  <th>Name of Item </th><th>Quantity</th><th>Rate</th><th>Amount</th>
+  {{#each model.items as |item index|}}
+  <tr>
+    <td>{{item.name}}</td><td>{{item.quantity}}</td><td>{{item.rate}}</td><td>{{item.amount}}</td>
+    <td>Cement</td><td>20 pcs</td><td>100</td><td>20000</td>
+  </tr>
+  {{/each}}
+</table>
+
+
+
+{{/paper-card-content}}
+{{/paper-card}}

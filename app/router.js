@@ -9,7 +9,8 @@ Router.map(function() {
   this.route('login', {path: '/'});
   this.route('dashboard', function() {
     this.route('orders', function() {
-      this.route('order');
+      this.route('order', {path: ':id'});
+      this.route('new');
     });
   });
 });

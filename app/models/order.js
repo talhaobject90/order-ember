@@ -5,5 +5,5 @@ export default DS.Model.extend({
   customer: DS.attr('string'),
   date: DS.attr('date'),
   total: DS.attr('number'),
-  user: DS.belongsTo('user', {async:true ,embedded: 'always'})
+  //user: DS.belongsTo('user', {async:true ,embedded: 'always'})
 });
