@@ -3,6 +3,33 @@ export default Ember.Controller.extend({
 
   actions:{
 
+
+
+    // calculatedAmount : Ember.computed('item.quantity', 'item.rate'  ,function() {
+    //   var quantity =  this.get('item.quantity');
+    //   var rate = this.get('item.rate');
+    //   var amount = quantity * rate;
+    //   return  amount;
+    // }),
+
+    isCreateOrderButtonDisabled: Ember.computed('title', function() {
+          return Ember.isEmpty(this.get('title'));
+    }),
+
+
+    calculatedAmount: Ember.computed('model.title' , function() {
+      //   return this.get('order.items').filter(function(item) {
+      //     // var quantity =  item.get('quantity');
+      //     // var rate = item.get('rate');
+      //     // var amount = quantity * rate;
+      //
+      //   //return amount;
+      // });
+      console.log('sdsd');
+
+
+    }),
+
     addNewItem :function(){
       var controller = this;
       let order = this.get('model');
@@ -21,7 +48,17 @@ export default Ember.Controller.extend({
           autoClear: true
         });
       });
-      
+    },
+
+    deleteItem :function(item){
+      var controller = this;
+      item.destroyRecord().catch(function(){
+        controller.notifications.addNotification({
+          message: 'Sorry, cant save at the moment !' ,
+          type: 'error',
+          autoClear: true
+        });
+      });
     },
 
     saveOrder :function(){

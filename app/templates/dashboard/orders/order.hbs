@@ -2,11 +2,14 @@
 {{#paper-card}}
 {{#paper-card-content}}
 
+
+
 {{paper-input label="Order Title" required=true value=model.title icon="description"  required-errortext="Order title is required."}}
+{{paper-input label="Customer" required=true value=model.customer icon="person"  required-errortext="Customer is required."}}
 
 <table class="table table-bordered table-striped table-condensed table-responsive">
   <thead>
-    <th>No.</th><th>Name of Item </th><th>Quantity</th><th>Rate</th><th>Amount</th>
+    <th>No.</th><th>Name of Item </th><th>Quantity</th><th>Rate</th><th>Amount</th><th>Action</th>
   </thead>
     <tbody>
     {{#each model.items as |item index|}}
@@ -23,6 +26,10 @@
       </td>
       <td>
         {{paper-input required=true value=item.amount required-errortext="Amount is required"}}
+
+      </td>
+      <td>
+      {{#paper-button raised=true action="deleteItem" param=item}}{{paper-icon icon="delete"}}{{/paper-button}}
       </td>
     </tr>
     {{/each}}
@@ -34,6 +41,6 @@
 {{/paper-card-content}}
 <div class="md-actions" layout="row" layout-align="end center">
       {{#paper-button  primary=true raised=true action="addNewItem"}}{{paper-icon icon="add"}}{{/paper-button}}
-      {{#paper-button  primary=true raised=true action="saveOrder"}}{{paper-icon icon="save"}}{{/paper-button}}
+      {{#paper-button  primary=true raised=true  disabled=isCreateOrderButtonDisabled action="saveOrder"}}{{paper-icon icon="save"}}{{/paper-button}}
 </div>
 {{/paper-card}}

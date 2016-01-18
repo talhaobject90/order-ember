@@ -2,8 +2,7 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   title: DS.attr('string'),
-  quantity: DS.attr('number'),
-  customer: DS.attr('number'),
+  customer: DS.attr('string'),
   date: DS.attr('date'),
   total: DS.attr('number'),
   items: DS.hasMany('item' ,{embedded: 'always', async:true}),

@@ -1,6 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
+
+  isCreateOrderButtonDisabled: Ember.computed('title', function() {
+        return Ember.isEmpty(this.get('title'));
+  }),
+
+
   actions: {
     createOrder: function(){
       var controller = this;
