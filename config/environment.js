@@ -71,7 +71,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.host = 'http://signlab-rails.herokuapp.com';
+    ENV.APP.host = 'http://order-rails.herokuapp.com';
   }
 
   return ENV;
